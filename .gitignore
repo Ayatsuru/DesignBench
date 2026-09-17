@@ -1,0 +1,52 @@
+# ==============================
+# Unreal Engine
+# ==============================
+
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# ==============================
+# Visual Studio
+# ==============================
+
+.vs/
+*.sln
+*.suo
+*.user
+*.userprefs
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.sdf
+
+# ==============================
+# JetBrains / Rider
+# ==============================
+
+.idea/
+
+# ==============================
+# VS Code
+# ==============================
+
+.vscode/
+*.code-workspace
+
+# ==============================
+# Build / Debug artifacts
+# ==============================
+
+*.pdb
+*.obj
+*.ipch
+*.log
+
+# ==============================
+# Operating System
+# ==============================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
