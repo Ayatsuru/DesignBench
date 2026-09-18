@@ -10,6 +10,10 @@ public class DesignBenchEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V6;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_7;
-		ExtraModuleNames.Add("DesignBench");
+		ExtraModuleNames.AddRange(new string[]
+		{
+			"DesignBench",
+			"DesignBenchEditor"
+		});
 	}
 }

@@ -55,6 +55,11 @@ Current validation rules include:
 - At least one `Entity.Type.*` tag is required
 - Missing Description produces a warning
 
+A dedicated `DesignBenchEditor` module also provides project-level validators for:
+
+- `DA_Entity_*`naming conventions
+- Entity Definition asset location conventions
+
 This allows invalid designer-authored data to be detected directly inside Unreal Editor.
 
 ## Architecture
