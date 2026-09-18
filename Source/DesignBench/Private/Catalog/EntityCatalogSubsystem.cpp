@@ -29,10 +29,7 @@ void UEntityCatalogSubsystem::BuildCatalog()
 	UAssetManager& AssetManager = UAssetManager::Get();
 	TArray<FPrimaryAssetId> EntityIds;
 	const FPrimaryAssetType EntityDefinitionType(TEXT("EntityDefinition"));
-	bool bFoundAssets = AssetManager.GetPrimaryAssetIdList(
-		EntityDefinitionType,
-		EntityIds
-	);
+	bool bFoundAssets = AssetManager.GetPrimaryAssetIdList(EntityDefinitionType, EntityIds);
 
 	if (bFoundAssets)
 	{

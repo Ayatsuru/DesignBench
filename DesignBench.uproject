@@ -15,7 +15,10 @@
 		{
 			"Name": "DesignBenchEditor",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"EditorSubsystem"
+			]
 		}
 	],
 	"Plugins": [
