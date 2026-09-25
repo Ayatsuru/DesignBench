@@ -30,7 +30,7 @@ Gameplay entities are represented through `UPrimaryDataAsset`-based definitions 
 
 New entity definitions can be added without modifying the systems consuming them.
 
-### Entity Catalog
+### Runtime Entity Catalog
 
 A `UGameInstanceSubsystem` discovers and caches all available Entity Definitions through Unreal Engine's Asset Manager.
 
@@ -62,8 +62,36 @@ A dedicated `DesignBenchEditor` module also provides project-level validators fo
 
 This allows invalid designer-authored data to be detected directly inside Unreal Editor.
 
+### Entity Database Editor Tool
+
+An Editor-only EntityDefinitions database is cached and exploited by a designer-facing Editor Utility Widget for a complete audit of EntityDefinitions.
+
+- Editor-only `UEntityDatabaseEditorSubsystem`
+- Dynamic EntityDefinition discovery and refresh
+- Name and Gameplay Tag filtering
+- Direct asset opening and Content Browser navigation
+- Per-entity validation feedback
+- Visible-row Valid / Warning / Invalid summary
+- Full-project EntityDefinition audit through the Asset Registry and Editor Validator Subsystem
+
+The runtime module never depends on this module.
+
 ## Architecture
 
 Current architecture looks as follow:
 
-Primary Data Assets -> Asset Manager -> EntityCatalogSubsystem -> Blueprint-facing API -> Designer Tools
+- `DesignBench` — Runtime module
+  - Entity definitions
+  - Runtime catalog and queries
+
+- `DesignBenchEditor` — Editor-only module
+  - Entity Database tooling
+  - Project-specific validators
+  - Asset Registry based audits
+  - Editor Utility Widget support
+
+## SideNotes
+
+The Asset Manager is used for the official EntityDefinition catalog,
+while the Asset Registry is used by the validation audit so that
+misplaced EntityDefinition assets can still be discovered and reported.

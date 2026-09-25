@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "EditorSubsystem.h"
+#include "GameplayTagContainer.h"
 #include "EntityDatabaseEditorSubsystem.generated.h"
 
 class UEntityDefinition;
@@ -23,7 +24,14 @@ public:
 	TArray<UEntityDefinition*> GetAllEntities() const;
 	UFUNCTION(BlueprintCallable, Category = "DesignBenchEditor|Entities")
 	void RefreshDatabase();
-
+	UFUNCTION(BlueprintPure, Category = "DesignBenchEditor|Entities", meta = (ReturnDisplayName = "FilteredEntities"))
+	TArray<UEntityDefinition*> GetEntitiesMatchingQuery(const FGameplayTagQuery& Query) const;
+	UFUNCTION(BlueprintPure, Category = "DesignBenchEditor|Tags", meta = (ReturnDisplayName = "Tags"))
+	FGameplayTagContainer GetEntityTags() const;
+	UFUNCTION(BlueprintPure, Category = "DesignBenchEditor|Tags", meta = (ReturnDisplayName = "Tag"))
+	FGameplayTag GetEntityTagFromName(FName TagName) const;
+	UFUNCTION(BlueprintCallable, Category = "DesignBenchEditor|Entities")
+	void ValidateEntityDatabase();
 
 private:
 	void BuildDatabase();

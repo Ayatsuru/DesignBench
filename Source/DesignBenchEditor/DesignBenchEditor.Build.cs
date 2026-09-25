@@ -17,7 +17,10 @@ public class DesignBenchEditor : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "DesignBench",
-                "DataValidation"
+                "DataValidation",
+		"GameplayTags",
+		"AssetRegistry",
+		"UnrealEd"
             }
         );
     }
