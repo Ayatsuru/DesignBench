@@ -3,6 +3,7 @@
 
 #include "Catalog/EntityCatalogSubsystem.h"
 #include "Entities/EntityDefinition.h"
+#include "GameplayTagsManager.h"
 #include "Engine/AssetManager.h"
 
 void UEntityCatalogSubsystem::Initialize(FSubsystemCollectionBase& Collection)
@@ -93,4 +94,15 @@ TArray<UEntityDefinition*> UEntityCatalogSubsystem::SearchEntitiesByName(const F
 		}
 	}
 	return Result;
+}
+
+FGameplayTag UEntityCatalogSubsystem::GetEntityTagFromName(FName TagName) const
+{
+	return FGameplayTag::RequestGameplayTag(TagName, false);
+}
+
+FGameplayTagContainer UEntityCatalogSubsystem::GetEntityTags() const
+{
+	UGameplayTagsManager& TagsManager = UGameplayTagsManager::Get();
+	return TagsManager.RequestGameplayTagChildren(GetEntityTagFromName(FName(TEXT("Entity"))));
 }

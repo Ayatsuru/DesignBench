@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "GameplayTagContainer.h"
 #include "EntityCatalogSubsystem.generated.h"
 
 
@@ -31,8 +32,10 @@ public:
 	TArray<UEntityDefinition*> FindEntityById(FPrimaryAssetId AssetId) const;
 	UFUNCTION(BlueprintPure, Category = "Entity|Entities")
 	TArray<UEntityDefinition*> SearchEntitiesByName(const FString& Name) const;
-
-	
+	UFUNCTION(BlueprintPure, Category = "Entity|Tags", meta = (ReturnDisplayName = "Tags"))
+	FGameplayTagContainer GetEntityTags() const;
+	UFUNCTION(BlueprintPure, Category = "Entity|Tags", meta = (ReturnDisplayName = "Tag"))
+	FGameplayTag GetEntityTagFromName(FName TagName) const;
 
 private:
 	void BuildCatalog();
